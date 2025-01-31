@@ -16,7 +16,7 @@ public interface VitalSignRepository extends JpaRepository<VitalSign,Integer>{
     @Query("SELECT v FROM VitalSign v WHERE v.idPaciente = :idPaciente ORDER BY v.instante DESC")
     List<VitalSign> findAllByIdPacienteOrdered(@Param("idPaciente") int idPaciente);
 
-    @Query(value = "SELECT CASE WHEN COUNT(*) > 0 THEN TRUE ELSE FALSE END FROM patientdsy2205 WHERE id = :idPaciente", nativeQuery = true)
-    boolean existsPacienteById(@Param("idPaciente") int idPaciente);
+    @Query(value = "SELECT CASE WHEN COUNT(*) > 0 THEN 1 ELSE 0 END FROM patientdsy2205 WHERE id = :idPaciente", nativeQuery = true)
+    int existsPacienteById(@Param("idPaciente") int idPaciente);
     
 }

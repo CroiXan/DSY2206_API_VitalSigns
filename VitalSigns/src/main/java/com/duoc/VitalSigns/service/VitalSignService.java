@@ -40,7 +40,7 @@ public class VitalSignService {
     }
 
     public boolean checkPatientId(int idPaciente){
-        return vitalSignRepository.existsPacienteById(idPaciente);
+        return vitalSignRepository.existsPacienteById(idPaciente) == 1;
     }
 
 }
