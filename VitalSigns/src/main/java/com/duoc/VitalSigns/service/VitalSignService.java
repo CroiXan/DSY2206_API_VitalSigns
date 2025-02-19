@@ -32,7 +32,12 @@ public class VitalSignService {
     }
 
     public VitalSign findLatestByIdPaciente(int idPaciente){
-        return vitalSignRepository.findLatestByIdPaciente(idPaciente);
+        Optional<VitalSign> vitalSign = vitalSignRepository.findLatestByIdPaciente(idPaciente);
+        if (vitalSign.isPresent()) {
+            return vitalSign.get();
+        } else {
+            return new VitalSign();
+        }
     }
 
     public List<VitalSign> findAllByIdPacienteOrdered(int idPaciente){

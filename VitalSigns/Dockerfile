@@ -11,7 +11,7 @@ COPY target/VitalSigns-0.0.1-SNAPSHOT.jar app.jar
 COPY Wallet_OCICLOUDNATIVE1 /app/Wallet_OCICLOUDNATIVE1
 
 # exponiendo puerto 8080 apra el contenedor
-EXPOSE 8080
+EXPOSE 8082
 
 # comandos para ejecucion app
 CMD ["java", "-jar", "app.jar"]
